@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="JSON/bootstrap.css">
+</head>
+<body>
+
+    <style>
+        .cont{
+            margin: 30px;
+        }
+        .choice{
+            width: 100%;
+            padding: 20px 0;
+            background-color: coral;
+            font-size: 20px;
+            color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+           padding-left: 20px;
+           margin: 10px 20px;
+        }
+    </style>  
+
+    <style>
+        .container{
+            position: absolute;
+            top: 20%;
+            left: 10%;
+
+        }
+    </style>
+    <div class="container">
+        <h1 class="display-1"></h1>
+        <p></p>
+        <button class="btn btn-success">Change BG</button>
+    
+    </div>
+   
+
+    <script>
+        arr=['green', 'yellow', 'orange', 'purple', 'black', 'brown', 'aqua']
+         color=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F", "a", "b", "c", "d", "e", "f"]
+
+        let button=document.querySelector('button')
+        let body=document.querySelector('body')
+        h1=document=document.querySelector('h1')
+        
+
+    //  button.addEventListener('click', ()=>{
+    //      for (let i = 0; i < 2; i++) {
+    //          body.style.backgroundColor=arr[ranf()]
+             
+    //      }
+    //  })
+    //  function ranf(){
+    //      return Math.floor(Math.random() * arr.length)
+    //  }
+
+    button.addEventListener('click', ()=>{
+        let rex='#'
+        for (let i = 0; i < 6; i++) {
+              rex+=color[random()]
+            body.style.background=rex
+            h1.innerHTML=rex
+        }
+    })
+    function random(){
+        return randoming=Math.floor(Math.random()*color.length)
+    }
+
+      
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+    <script>
+           quest=document.querySelector('#question')
+           opt=document.querySelector('.opt')
+        choice=Array.from(document.querySelectorAll('.choice'))
+        let index=0
+         let Question=[
+            {
+                What: 'What is “Morning” in Yoruba?',
+                Option:
+                [
+                    'Àárọ̀',
+                    'Ọ̀sán',
+                    'Ìrọ̀lẹ',
+                    'Alẹ́'
+                ],
+                 Answer:'',
+                corret:'Àárọ̀'
+
+            },
+        ]
+
+     
+        function display(){
+            quest.innerHTML=`<h1>${Question[index].What}</h1>`
+
+            Question[index].Option.forEach(max => {
+             //   let number = choice.dataset('number')
+              return opt.innerHTML+=`<p class="choice" data-number="1">${max}</p>`
+            });
+        }
+        display()
+        choosing=document.querySelectorAll('.choice')
+        // console.log(Question[index].corret)
+
+        choosing.forEach(element => {++
+        element.addEventListener('click', ()=>{
+            alert()
+            let save=Question[index].corret;
+            //console.log(element.innerHTML)
+            
+            
+            if (save === element.innerHTML) {
+                alert('cool')
+                
+            }else{
+                alert('bad')
+            }
+         
+        })
+    });
+
+    // choosing.addEventListener('click', ()=>{
+    //     alert()
+    // })
+    </script>
+
+
+
+
+
+
+</body>
+</html>

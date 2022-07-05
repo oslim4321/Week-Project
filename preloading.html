@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        img{
+            max-width: 100%;
+        }
+        .card{
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 350px;
+        }
+        .card-header{
+            height: 200px;
+        }
+        .card-header img{
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        .card-content{
+            background-color: #fff;
+            padding: 30px;
+        }
+        .card-title{
+            height: 20px;
+             margin: 0;
+        }
+        .card-expert{
+            color: #777;
+            margin: 10px;
+        }
+        .author{
+            display: flex;
+        }
+        .profileImg{
+            width:40px;
+            height:40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .author-Info{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin-left: 10px;
+            width: 100px;
+        }
+        .author-Info small{
+            color: #aaa;
+            margin-top: 5px;
+        }
+        .animated-bg{
+            background: linear-gradient(
+            to right, 
+            #f6f7f8 0%,
+            #edeef1 10%,
+            #f6f7f8 20%,
+            #f6f7f8 100% 
+            );
+            background-size: 200% 100%;
+            animation: bgPos 1s linear infinite;
+        }
+        .animated-bg-text{
+            display: inline-block;
+            border-radius: 50px;
+            margin: 0;
+            height: 10px;
+            width: 100%;
+        }
+        @keyframes bgPos{
+            0%{
+                background-position: 50% 0;
+            }
+            100%{
+                background-position: -150% 0;
+            }
+        }
+    </style>
+    <div class="card">
+        <div class="card-header animated-bg" id="header">
+           &nbsp;
+        </div>
+
+            <div class="card-content">
+                <h3 class="card-title animated-bg animated-bg-text" id="title">&nbsp;</h3>
+                <p class="card-expert" id="expert">&nbsp;
+                    <span class="animated-bg animated-bg-text">&nbsp;</span>
+                    <span class="animated-bg animated-bg-text">&nbsp;</span>
+                    <span class="animated-bg animated-bg-text">&nbsp;</span>
+                </p>
+                <div class="author">
+                    <div class="profileImg animated-bg" id="profile-img">
+                        &nbsp;
+                    </div>
+                    <div class="author-Info">
+                        <strong class="animated-bg animated-bg-text" id="name">
+                           &nbsp;
+                        </strong>
+                        <small class="animated-bg animated-bg-text" id="date">
+                            &nbsp;
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+      
+    </div>
+    <script>
+        header=document.getElementById('header')
+        title=document.getElementById('title')
+        expert=document.getElementById('expert')
+        profileImg=document.getElementById('profile-img')
+        name=document.getElementById('name')
+        date=document.getElementById('date')
+        animatedbg=document.querySelectorAll('.animated-bg')
+        animatedBgText=document.querySelectorAll('.animated-bg-text')
+
+        setTimeout(load, 2000)
+        function load(){
+            header.innerHTML=` <img src="images/pexels-aleksey-sokolenko-10194696.jpg" alt="">`
+            title.innerHTML='Lorem ipsum dolor sit amet.'
+            expert.innerHTML='Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, voluptatibus adipisci? Perspiciatis commodi soluta sequi non dolores quisquam aliquam necessitatibus.'
+            profileImg.innerHTML='<img src="images/IMG_20211211_161613_656.jpg" alt="">'
+            name.innerHTML=' Oslim Page'
+            date.innerHTML='oct 23, 2020'
+              animatedbg.forEach(element =>element.classList.remove('animated-bg') );
+            animatedBgText.forEach(element =>element.classList.remove('animatedBgText') );
+           
+        }
+     
+    </script>
+</body>
+</html>

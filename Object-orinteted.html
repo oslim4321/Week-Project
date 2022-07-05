@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .set{
+            width:300px;
+            background: indigo;
+            height: 300px;
+            margin: 10px;
+        }
+    </style>
+    
+    <input id="inp" type="text" placeholder="input your name">
+    <button>Create Box</button>
+
+    <script>
+
+        let arr=['blue', 'green','purple', 'orange','grey', 'indigo', 'brown', 'chocolate','aqua','chartreuse']
+    //  let inp=document.getElementById('inp').setAttribute('type', 'date')
+        let button=document.querySelector('button')
+
+
+            let develop=document.createElement('div')
+            develop.setAttribute('class', 'set')
+            document.body.append(develop)
+
+    //    let body=document.body
+    //    let cred=document.createElement( )
+       
+    //     body.append('wowowo')
+        
+
+    //   class service{
+    //       constructor(name, Email,Password){
+    //           this.Name=name
+    //           this.Email=Email
+    //           this.Password=Password
+    //       }
+    //     login(){
+    //       console.log(`${this.Name} just login`)
+    //     }
+    //     logout(){
+    //       console.log(`${this.Name} just log`)
+    //     }
+      
+    //   }
+     
+    //   let newservice= new service('selim', 'Adewaleselim6@gmail.com', 'Adewa321@')
+    //   let newservice2= new service('Samad', 'Samadclass6@gmail.com' ,'Gapo321@af')
+
+
+    //   console.log(newservice)
+    //   console.log(newservice2)
+    //   newservice.login()
+    //   newservice2.login()
+
+        class seim{
+            constructor(nickname,age){
+                this.nickname=nickname
+                this.Age=age
+            }
+        }
+        let serve= new seim('Sooto selim', '20')
+        console.log(serve)
+
+    function lege(var1, var2){
+        return lege;
+        
+    }
+ 
+
+    console.log(32+42)
+
+
+    
+
+
+    function User(Username){
+        this.Username=Username;
+        
+        User.prototype.login=function(){
+            console.log(`${this.Username} logged in`)
+        }
+    }
+
+    serviceOne=new User('selim')
+    serviceTwo=new User('samad')
+    console.log(serviceOne)
+    console.log(serviceTwo)
+serviceTwo.login()
+
+let selim=10
+
+new Promise((resolve,reject)=>{
+    //resolve('i am good')
+     reject('bad')
+})
+.then((data=>{
+    console.log(data)
+}))
+.catch(error=>{
+    console.log(error)
+})
+
+
+    // trying to return a function under async
+//    let sim= async()=>{
+//     let response = await fetch('data.json')
+//     .then(response=>response.json())
+//    // console.log(response)
+//    console.log(response)
+//    }
+//    let seli=sim()
+   
+   // trying to return function 
+
+
+    
+    </script>
+</body>
+</html>

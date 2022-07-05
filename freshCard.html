@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="JSON/bootstrap.css">
+    <title>card rotate</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .card{
+            width: 200px;
+            height: 250px;
+            background-color: green;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .carding{
+            /* display: grid;
+            grid-template-columns: repeat(4, 350px); */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            grid-row-gap: 10px;
+        }
+        img{
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .disa{
+            display: none;
+        }
+        .show img{
+            display: block;
+        }
+        #orange{
+            background-color: orange;
+        }
+        #purple{
+            background-color: purple;
+        }
+
+    </style>
+<div class="container">
+<button id="shuffle" class="btn btn-success">Shuffle</button>
+    <div class="carding">
+       
+    </div>
+<p></p>
+</div>
+
+    <script>
+        let counter=5
+       let hidden=false
+       img=document.querySelectorAll('img')
+        shuffle=document.getElementById('shuffle')
+        card=document.querySelectorAll('.card')
+        carding=document.querySelector('.carding')
+       
+        let i=0
+          let reference=[  id='orange',  id='purple',  id='red',  id='yellow',  id='red',  id='purple',  id='yellow',  id='orange'
+        ]
+          let image=["images/pexels.jpeg",  "images/pexels-aleksey-sokolenko-10194696.jpg",  "images/pexels-nikita-nikitin-10102319.jpg",  "images/pexels-евгения-егорова-9049368.jpg",  "images/pexels-nikita-nikitin-10102319.jpg",  "images/pexels-aleksey-sokolenko-10194696.jpg",  "images/pexels-евгения-егорова-9049368.jpg",  "images/pexels.jpeg",
+
+        ]
+       
+        let arr=[]
+
+        function display(){
+            for (let i = 0; i < 8; i++) {
+                carding.innerHTML+=` <div id='${reference[i]}' class="card"><img src="${image[i]}" alt=""></div>`
+            }
+      
+        shuffle.addEventListener('click', ()=>{
+            carding.innerHTML=''
+            // SHUFFLLING ALL THE ELEMENT IN THE ARRAY
+            let shu=image.sort(()=> 0.5 - Math.random())
+            for (let i = 0; i < 8; i++) {
+                
+               carding.innerHTML+=`<div id='${reference[i]}' class="card"><img src="${image[i]}"></div>`
+                
+            }
+        })
+        console.log(reference)
+    }
+        display()
+     
+                     // count down 
+     p=document.querySelector('p')
+     card=document.querySelectorAll('.card')
+     img=document.querySelectorAll('img')
+
+    
+
+
+  let cou=setInterval(() => {
+        counter--
+        p.innerHTML=counter;
+        if (counter === 0) {
+            clearInterval(cou)
+            p.style.color='red'
+
+            // DISABLE THE IMG ONCE THE COUNTER IS DONE
+            img.forEach(element => {
+              element.classList.add('disa')
+           });
+
+           card.forEach(element => {
+            element.addEventListener('click', (e)=>{
+             
+                element.classList.add('show')
+            })
+      });
+        }
+    }, 1000);
+
+
+
+      
+       
+    
+      
+
+        
+    </script>
+</body>
+</html>

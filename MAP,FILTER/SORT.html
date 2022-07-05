@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .tags{
+        background-color: orange;
+        color: white;
+        width: 40px;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 0 5px 10px 0;
+        cursor: pointer;
+    }
+</style>
+<body>
+
+    <input id="input" type="text">
+    <div class="tags">
+    <span >wowo</span>
+</div>
+
+    <script>
+    let input=document.getElementById('input')
+    let p=document.querySelector('.tags')
+    body=document.getElementsByTagName('body')
+
+    input.addEventListener('keyup', (e)=>{
+        
+      create(e.target.value)
+   
+    })
+
+    if(e.key === 'Enter'){
+        e.target.value=''
+    }
+
+    function create(input){
+        
+        let tag=input.split(',')
+        
+        .filter(remove=> remove.trim() !== '')
+        .map(remove=>remove.trim())
+        p.innerHTML=''
+
+        tag.forEach(element => {
+
+         let copy=document.createElement('span')
+            copy.classList.add('tags')
+            copy.innerHTML=element
+            p.appendChild(copy)
+        });
+    }
+    </script>
+</body>
+</html>

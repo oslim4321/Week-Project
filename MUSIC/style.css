@@ -1,0 +1,225 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: blueviolet;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    overflow: none;
+}
+.cont{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.box{
+    width: 320px;
+    height: 540px;
+    background-color: #ccc;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.5)0px  19px 38px, rgba(0, 0, 0, 0.22)0px 15px 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 0;    
+    position: relative;
+    overflow: hidden;
+}
+.circle{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 5px;
+    box-shadow: 5px 5px 8px grey;
+    background-position: fixed;
+    background-size: cover;
+    transition: transform 1s;
+}
+.rotating{
+    animation: rotate 10s infinite linear;
+}
+.color{
+    animation: example 4s infinite linear;
+}
+@keyframes rotate {
+    to{transform: rotate(360deg);}
+}
+/* #artist{
+    animation: example 10s infinite linear;
+    -webkit-animation-name: example; 
+    -webkit-animation-duration: 4s; 
+    animation-name: example;
+    animation-duration: 4s;
+} */
+
+/* Safari 4.0 - 8.0 */
+    @-webkit-keyframes example {
+    0%   {color: red;}
+    25%  {color: yellow;}
+    50%  {color: blue;}
+    100% {color: green;}
+    }
+
+    /* Standard syntax */
+    @keyframes example {
+    0%   {color: orange;}
+    25%  {color: orangered;}
+    50%  {color: blue;}
+    100% {color: paleturquoise;}
+    }
+
+
+
+
+
+
+
+
+
+
+     HOW TO ROTATE 
+/* @keyframes rotate {
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+} */
+
+    HOW TO ROTATE
+/* @keyframes rotate360 {
+    to{transform: rotate(360deg);}
+}
+.circle{animation: 6s rotate360 infinite linear;}  */
+
+h1, h3{
+    font-size: 20px;
+}
+.volume{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.range{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.rang,.Volumeinp{
+    height: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-transition: .2s;
+    background-color: #83a9ff;
+    transition: opacity -2s;
+}
+.Volumeinp{
+    width: 40%;
+    margin: 10px;
+}
+.rang{
+    width: 60%;
+}
+.Volumeinp::-webkit-slider-thumb,
+.rang::-webkit-slider-thumb
+{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border: 3px solid #3774ff;
+    border-radius: 100%;
+    cursor: pointer;
+}
+span{
+    font-weight: 700;
+
+}
+.track{
+    width: 290px;
+   margin: 0 20px;
+   position: absolute;
+   left: 0;
+   right: 0;
+   bottom: 50px;
+}
+.alert{
+    position: absolute;
+    top: 30px;
+    font-size: 10px;
+    font-weight: 400;
+    color: red;
+}
+.list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
+    font-size: 15px;
+}
+i:hover{
+    transition: all 0.2s ease;
+    opacity: 0.6;
+}
+#play, #pause{
+    transition: all 2s ease;
+}
+
+.load{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.load, .stroke{
+    background-color: #f1f1f1;
+    height: 50px;
+    width: 5px;
+    border-radius: 50px;
+    margin: 0 5px;
+    padding: 0 4px;
+    animation: anime 1.4s linear infinite;
+   
+}
+@keyframes anime{
+    20%{background-color: chartreuse;}
+    50%{
+        height: 20px;
+        background: #4286f4;
+    }
+    70%{
+        background-color: orange;
+    }
+    100%{
+        height: 50%;
+    }
+}
+.stroke:nth-child(1){
+    animation-delay: 0s;
+}
+.stroke:nth-child(2){
+    animation-delay: 0.3s;
+}
+.stroke:nth-child(3){
+    animation-delay: 0.6s;
+}
+.stroke:nth-child(4){
+    animation-delay: 0.9s;
+}
+.stroke:nth-child(5){
+    animation-delay: 0.6s;
+}
+.stroke:nth-child(6){
+    animation-delay: 0.3s;
+}
+.stroke:nth-child(7){
+    animation-delay: 0s;
+}

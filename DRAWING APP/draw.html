@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .side{
+            position: absolute;
+            top: 0;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+        }
+        canvas{
+            width: 100%;
+            height: 100vh;
+           
+        }
+        input{
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <canvas></canvas>
+        <div class="side">
+            <input id="inp" type="color" value="black"/>
+            <input type="text" name="" id="strokeWEI" value="3">
+         
+        </div>
+
+    <script>
+        inp=document.getElementById('inp')
+        strokeWEI=document.getElementById('strokeWEI')
+        let isDrawing=false
+        let canva=document.querySelector('canvas')
+        let ctx=canva.getContext('2d')
+        canva.addEventListener('mousedown', start)
+        canva.addEventListener('mousemove', draw)
+        canva.addEventListener('mouseup', stop)
+
+        function start(e){
+            isDrawing=true;
+            draw(e)
+        }
+        function draw({clientX: x, clientY: y}){
+            if (!isDrawing)return 
+            ctx.lineWidth=strokeWEI.value;
+            ctx.lineCap="round";
+            ctx.strokeStyle=inp.value;
+            ctx.lineTo(x,y)
+            ctx.stroke()
+            ctx.beginPath()
+            ctx.moveTo(x,y)
+        }
+        function stop(){
+            isDrawing=false;
+            ctx.beginPath()
+        }
+
+
+        window.addEventListener('resize', resizeCanvas)
+
+        function resizeCanvas(){
+            canva.width = window.innerWidth;
+            canva.height = window.innerHeight
+        }
+        resizeCanvas()
+
+
+
+
+    </script>
+</body>
+</html>

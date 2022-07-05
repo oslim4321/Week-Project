@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vowel</title>
+    <link rel="stylesheet" href="JSON/bootstrap.css">
+</head>
+<body>
+    <div class="container text-center">
+    <input class="form-control" type="text">
+    <button onclick="check()" class="btn btn-success">Check</button>
+    <p class="length"></p>
+    <p class="display2"></p>
+    <p class="displ"></p>
+</div>
+
+
+
+    <script>
+        function check(){
+            let inp=document.querySelector('.form-control').value.trim();
+           let vowelSou=0;
+           let consoSoun=0;
+           let consonant='bcdfghjklmnpqrstuvwxyz'
+
+            let vowel='aeiouAEIOU'
+            //for (let C = 0; C < consonant.length; C++) {
+
+            for (let i = 0; i < vowel.length; i++) {
+              for (let y = 0; y < inp.length; y++) {
+                    if (vowel[i] === inp[y]) {
+                        vowelSou++;
+                    }
+            } 
+            }
+
+            for (let i = 0; i < consonant.length; i++) {
+              for (let y = 0; y < inp.length; y++) {
+                if (inp[y] === consonant[i]) {
+                    consoSoun++
+                }
+              }
+                
+            }
+            length=document.querySelector('.length').innerHTML=`this is the total amunt of words in your TextBox ${inp.length}`
+            let p=document.querySelector('.display2').innerHTML=`This are the Number of vowel sound in your TextBox: ${vowelSou}`;
+            document.querySelector('.displ').innerHTML=`This are the Number of Consonant sound in your TextBox: ${consoSoun}`
+
+        }
+
+       
+
+
+    </script>
+</body>
+</html>

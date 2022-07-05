@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+    <input type="radio" value="">
+
+<div style="margin: 10px 30px; " class="container">
+    <div class="opt"></div>
+</div>
+
+    <script>
+          let Question=[
+
+
+
+
+            {
+                What: 'What is “Morning” in Yoruba?',
+                Option:
+                [
+                    'Àárọ̀',
+                    'Ọ̀sán',
+                    'Ìrọ̀lẹ',
+                    'Alẹ́'
+                ],
+                 Answer:'',
+                corret:'Àárọ̀'
+
+            },
+
+        {  What: 'How do we greet in the morning?  ',
+            Option:[
+                'Ẹ-káàsán',
+                'Ẹ-kú-Ìrọ̀lẹ́ ',
+                'Ẹ-káàárọ̀',
+                'Ẹkáalẹ́'
+            ],
+        Answer:'',
+        corret:'Ẹ-káàárọ̀',
+
+        },
+        {  What: 'How do we greet in the Afternoon?  ',
+            Option:[
+                'Ẹ-káàárọ̀',
+                'Ẹ-káàsán',
+                'Ẹ-kú-Ìrọ̀lẹ́ ',
+                'Ẹ-káalẹ́'
+            ],
+        Answer:'',
+        corret:'Ẹ-káàsán',
+
+        },
+
+        {  What: 'What is “Evening” in Yoruba?',
+            Option:[
+                'Ìrọ̀lẹ́',
+                'Àárọ̀',
+                'Ọ̀sán',
+                'Alẹ'
+            ],
+        Answer:'',
+        corret:'Ìrọ̀lẹ́',
+
+        },
+
+        {  What: 'How do we greet in the Night?    ',
+            Option: [
+              'Ẹ-káàárọ̀',
+              'Ẹ-káàsán',
+              'Ẹ-káalẹ́',
+              'Ẹ-kú-Ìrọ̀lẹ́'
+            ],
+            Answer:'',
+            corret:'Ẹ-káalẹ́',
+            },
+
+
+        {  What: 'How do we greet in the Evening?  ',
+            Option: [
+              'Ẹ-káàárọ̀',
+              'Ẹ-káàsán',
+              'Ẹ-kú-Ìrọ̀lẹ́',
+              'Ẹ-káalẹ́'
+            ],
+            Answer:'',
+            corret:'Ẹ-kú-Ìrọ̀lẹ́',
+            },
+
+        {  What: 'What is “Night” in Yoruba?',
+            Option: [
+              'Àárọ̀',
+              'Ọ̀sán',
+              'Ìrọ̀lẹ́ ',
+              'Alẹ́'
+            ],
+            Answer:'',
+            corret:'Alẹ́',
+            },
+
+            
+        {  What: 'How do we bid our Family or Friends a goodnight? ',
+            Option: [
+              'Ódàbọ̀',
+              'Ẹ-káàsán',
+              'Ódàárọ̀',
+              'Ẹ-káalẹ́'
+            ],
+            Answer:'',
+            corret:'Ódàárọ̀',
+            },
+
+        {  What: 'Can you guess what the word “Greeting” means in Yoruba? ',
+            Option: [
+              'Ìkíni',
+              'Ìgbà',
+              'Ohùn',
+              'Èdè'
+            ],
+            Answer:'',
+            corret:'Ìkíni',
+            },
+
+        {  What: 'You are done with your Yoruba Quiz accessment? Click on Submit button to check your scores',
+
+            Option:[
+           
+            ]
+      
+                   }
+
+
+        ]
+        
+        opt=document.querySelector('.opt')
+        container=document.querySelector('.container')
+        for (let index = 0; index < Question.length; index++) {
+            container.innerHTML+=`<h1>${Question[index].What}<h1>`
+                Question[index].Option.forEach(max =>{
+
+                 container.innerHTML+=` <div class='optio'>
+                <span>${max}</span>               
+                </div>`
+            })             
+        }
+
+      
+        
+        
+
+
+
+
+    </script>
+</body>
+</html>

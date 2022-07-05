@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input[type="radio"]{
+            display: none;
+        }
+        label{
+            position: relative;
+            color: black;
+            font-size: 40px;
+            border: 1px solid red;
+            padding: 10px  50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        label::before{
+            content: '';
+            height: 30px;
+            width: 30px;
+            border: 1px solid green;
+            border-radius: 50%;
+        }
+        input[type="radio"]:checked + label{
+            background-color: #01cc85;
+            columns: white;
+        }
+        input[type="radio"]:checked + label:before{
+            height: 15px;
+            width: 15px;
+            border: 10px solid white;
+            background-color: #01cc65;
+        }
+    </style>
+    <input name="size" type="radio"  id="small" checked="checked">
+    <label for="Small">Small</label><br>
+
+    <input name="size" type="radio" id="large" >
+    <label for="large">large</label>
+</body>
+</html>

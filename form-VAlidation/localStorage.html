@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+    <style>
+        body{
+         background-color: #dde2e7;
+        }
+        label{
+            font-size: 25px;
+            
+        }
+        .form-control{
+            padding: 13px 5px;
+            /* box-shadow: -3px -3px 7px #ffffff73,
+              2px 2px 5px rgba(94, 104, 121,0.2); */
+              box-shadow: inset -3px -3px 7px #ffffff73,
+    inset 2px 2px 5px rgba(94, 104, 121,0.2);
+           z-index: 999;
+        }
+        input{
+           width: 50%;
+           background-color:  #dde2e7;
+        }
+        .form-control{
+         background-color:  #dde2e7;
+        }
+        .form-control:focus{
+           background: #dde2e7;
+        }
+        .form-control:-ms-input-placeholder{
+           color: white;
+        }
+
+       
+    </style>
+
+
+
+
+   <div class="container" id="head">
+       <div class="cont">
+       <h1 class="display-3 ">Create Account</h1>
+
+       <form action="">
+    <div class="form-group">
+        <label>Enter First Name</label>
+        <input placeholder="Enter Your Name" name="firstName" class="form-control my-3"type="text">
+    </div>
+
+    <div class="form-group">
+       <label>Enter Last Name</label>
+       <input placeholder="Enter Your Last Name" name="lastName" class="form-control my-3" type="text">
+  </div>
+
+     <div class="form-group">
+       <label>Enter Your Email</label>
+       <input placeholder="Enter Your Email" name="Email" class="form-control my-3" type="text" id="ema">
+    </div>
+
+    <div class="form-group">
+        <label for="">Create Password</label>
+        <input placeholder="Enter Your Password" name="password" class="form-control my-3" type="password" id="pass" >
+    </div>
+
+<button class="btn btn-success"><a href="login.html"></a> Sign Up </button>
+</form>
+   </div>
+</div>
+
+
+
+
+
+<div hidden id="cont" class="container">
+   <h1 class="display-2">Login page</h1>
+<div class="login_form">
+   <div class="form">
+       
+      <form action="">
+         <label for="">Enter Your Email</label>
+         <input id="inpMail" type="text" class="form-control">
+       
+         <label for="">Enter Password</label>
+         <input id="inpPass" type="text" class="form-control">
+         <button class="btn btn-success" id="login">Submit</button>
+      </form>
+   </div>
+</div>
+</div>
+
+   
+
+
+
+
+   <script>
+      cont=document.querySelector('#cont')
+      head=document.querySelector('#head')
+        button=document.querySelector('button')
+        let form=document.querySelector('form')
+     //   let pattern = /^[a-z0-9]$/;
+        let passwor = /^(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*/;
+        let localSt=[]
+        let i=0
+        let seen =false
+
+        
+      
+         let saved=localStorage.getItem('localSt')
+            if(saved){
+               localSt=JSON.parse(saved)
+            }
+    // localStorage.clear()
+
+                //REGEX  password
+         form.password.addEventListener('keyup', e =>{
+               e.preventDefault()
+            let userInfo=form.password.value;
+               if(passwor.test(e.target.value)){
+                  pass.style.border='2px solid green'
+               }else{
+                  pass.style.border='2px solid red'
+               }
+            })
+
+
+    //   EVENT LISTENER FOR THE SIGNUP BUTTON
+        button.addEventListener('click', e =>{
+            e.preventDefault()
+          
+            // GETTING ALL THE FORM 
+            let first=form.firstName.value
+            let second=form.lastName.value
+            let email=form.Email.value
+            let password=form.password.value
+            let ema=document.getElementById('email')
+            let newElem={SecondName:second, FirstName:first, Email:email, password:password}
+            
+            let send=form.Email.value
+            let pass=form.password.value
+            
+            if(send.includes('@') && passwor.test(pass) && first !== '' && second !== ''){
+               localSt.push(newElem)
+               alert('Account Created successful Go to login page ')
+               
+               cont.hidden=false
+               head.style.display='none'
+               
+            }else{
+            alert('Pls fill all the form')
+            }
+
+            // PUSHING DATA TO LOCAL STORAGE
+           
+            localStorage.setItem('localSt', JSON.stringify(localSt))
+
+      //  for (let i = 0; i < localSt.length; i++) {
+      
+      //         let send=form.Email.value
+               
+      //          if (send.includes(localSt[i].Email)){
+      //             let saved=localStorage.getItem('localSt')
+      //             seen=true
+      //             setTimeout(() => {
+      //                seen=false
+      //             }, 1000);
+      //          alert('your account is alredy been used')
+
+      //          }
+      //          else if(i==localSt.length && seen==false){
+      //             alert('not used')
+      //          }
+      //          // else{
+      //          //    alert('not used')
+      //          // }
+      //       }
+         
+
+
+        })
+       
+         // LOGIN PAGE
+         inpMail=document.getElementById('inpMail')
+         inpPass=document.getElementById('inpPass')
+
+       
+        login.addEventListener('click', e=>{
+           
+         localStorage.getItem('localSt', JSON.stringify(localSt))
+
+         let mail=inpMail.value;
+         let logPass=inpPass.value;
+
+           e.preventDefault()
+
+            if(mail.includes((localSt[i++].Email))){
+               alert('nice')
+            }else{
+               alert('something wromg')
+            }
+            console.log(localSt[i].Email)
+        })
+            
+         
+       
+           
+
+
+        
+
+
+         
+
+   </script>
+</body>
+</html>

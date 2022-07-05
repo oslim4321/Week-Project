@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList app</title>
+    <link rel="stylesheet" href="JSON/bootstrap.css">
+</head>
+<body style="background: #68EACC;">
+<style>
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-top: 10%;
+       
+    }
+    .content{
+        top: 20%;
+        width: 350px;
+        height: 550px;
+        background-color: White;
+        border-radius: 10px;
+        margin: 0 25px;
+        position: relative;
+    }
+    p{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+    input{
+        width: 100%;
+        border: none;
+        padding: 7px;
+        border-radius: 5px;
+        box-shadow: 1px 2px 4px rgba(1, 0, 0, 0.3);
+    }
+    .todolist{
+        margin: 4px 15px;
+        height: 300px;
+        overflow-y: scroll;
+    }
+    .head{
+        padding: 2px 10px;
+        display: flex;
+    }
+     tr{
+         position: relative;
+        
+         width: 100%;
+         height: 50px;
+       
+    }
+    td{
+        background-color: #ccc;
+        border-radius: 7px;
+        font-size: 20px;
+    }
+    #del{
+        position: absolute;
+        right: 0;
+        bottom: 5px;
+        cursor: pointer;
+        display: none;
+        transition: all 2s ease;
+    }
+    tr:hover #del{
+        display: block;
+        transition: all 2s ease;
+    }
+    .alert{
+      position: absolute;
+      bottom: 0;
+    }
+    .danger{
+        background-color: red;
+        color: white;
+    }
+    .success{
+        background-color: #68EACC;
+    }
+    
+    
+</style>
+
+    <div class="container">
+        <div class="content">
+            <p>To Do List App</p>
+
+            <div class="box">
+            <div class="head">
+                <input placeholder="Add Todo" id="todo" type="text">
+                <button disabled class="btn btn-primary">Add</button>
+            </div>
+            </div>
+
+           
+                <div class="todolist">
+                <table class="table">
+                  <thead id="show">
+                    <!-- <tr>
+                        <td title="your List">ok <button class="btn btn-danger"id="del" >X</button>lo</td>
+                    </tr> -->
+                  </tbody>
+                </table>
+            </div>
+            <p style="font-size: 20px;">You have <span id="pending">0</span> Pending List</p>
+            <div class="container">
+             
+                <div hidden class="alert alert-success alert-dismissible" id="myAlert">
+                  <strong>Success!</strong> Added Successffully
+                </div>
+              </div>
+        </div>
+     
+    </div>
+    <h1></h1>
+
+
+
+
+
+    <script>
+        function alerting(text, action){
+            alert.hidden=false;
+            alert.innerHTML=text;
+            alert.classList.add(`alert-${action}`)
+
+            setTimeout(() => {
+                alert.innerHTML='';
+            alert.classList.remove(`alert-${action}`)
+            }, 1000);
+        }
+
+
+
+      //  localStorage.clear()
+      let TODO=[]
+      alert=document.querySelector('.alert')
+        button=document.querySelector('button')
+        let todo=document.querySelector('#todo')
+
+        
+        let saved=localStorage.getItem('TODO')
+            if(saved){
+            TODO=JSON.parse(saved)
+            }
+
+        
+
+        
+       button.addEventListener('click', ()=>{
+           
+        let list=todo.value;
+         let newEle={TodoList:list}
+          TODO.push(list)
+          console.log(newEle)
+          localStorage.setItem('TODO', JSON.stringify(TODO))
+          pending.innerHTML=TODO.length
+
+          alerting('<strong>Success!</strong> Added Successffully', 'success')
+    
+          display()
+          todo.value=''
+       })
+       
+      
+       
+
+        function display(){
+            show.innerHTML=''
+       for (let index = 0; index < TODO.length; index++) {
+     
+        show.innerHTML+=`
+            <tr><td>(${index+1})   ${TODO[index]} <button onclick="delet(${index})" class="btn btn-danger"id="del" >X</button></td></tr>`
+           
+       }   
+     
+       button.disabled=true
+        }
+
+       todo.addEventListener('keyup', ()=>{
+           if (todo.value.trim() != '') {
+               button.disabled=false
+           }else{
+               button.disabled=true 
+           }
+       })
+       function delet(index){
+           TODO.splice(index,1);
+          localStorage.setItem('TODO', JSON.stringify(TODO))
+          pending.innerHTML=TODO.length;
+       
+          alerting('<strong>Deleted!</strong> deleted Successffully', "danger")
+           display()
+       }
+
+
+
+
+    
+    </script>
+</body>
+</html>

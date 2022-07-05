@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <script src='../../kit.fontawesome.com/a076d05399.js'></script> -->
+</head>
+<body>
+
+
+
+
+
+
+    <div class="container">
+        <div class="cont">
+            <div class="box">
+                <p><span> <i class="fa fa-music fa-1x"></i></span> Playing <span>0</span> out of <span id="MusicLength">0</span></p>
+                <div class="pic"><img  class="circle" src="" alt=""></div>
+                <h1 id="title" style="font-size: 30px;">Song Title</h1>
+                <h3 id="artist">The name of the Artist</h3>
+                
+                <div class="range">
+                   <span class="currTime">00:00</span> <input onchange="change()" class="rang" min="1" max="100%" type="range" value="0"><span class="totalDura">00:00</span>
+                </div>
+                <div class="volume">
+               <span><i class="fa fa-volume-down"></i></span> <input class="Volumeinp" min="1" max="100" type="range" value="100"><span><i class="fa fa-volume-up"></i></span></div>
+
+        <div class="list">      
+             <div class="random-track">
+                <i class="fa fa-random fa-2x"></i>
+            </div>
+            <div class="prev-track">
+                <i class="fa fa-step-backward fa-2x"></i>
+            </div>
+
+            <div class="playpause-track">
+                <i  id="play" class="fa fa-play-circle fa-4x"></i>
+                <i hidden id="pause" class="fa fa-pause-circle fa-4x"></i>
+            </div>
+
+            <div class="next-track">
+                <i id="next" class="fa fa-step-forward fa-2x"></i>
+            </div>
+
+            <div class="repeat-track">
+                <i class="fa fa-repeat fa-2x"></i>
+            </div>
+
+        </div>
+
+    <div class="wav" hidden>
+        <span class="stroke"></span>
+        <span class="stroke"></span>
+        <span class="stroke"></span>
+        <span class="stroke"></span>
+        <span class="stroke"></span>
+        <span class="stroke"></span>
+        <span class="stroke"></span>
+    </div>
+    <div id="succAlert" class="alert alert-primary" hidden>
+      shuffle Mode activated!
+    </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <div class="div">
+        <img  src="" alt="">
+    </div> -->
+
+    <script>
+        let rotation=0;
+        let isRandom=false
+        //let play=false;
+       // let pause=true;
+        let isPlaying=false
+    playing=document.querySelector('.playpause-track')
+    pauseing=document.querySelector('#pause')
+    circle=document.querySelector('.circle')
+    title=document.getElementById('title')
+    artist=document.getElementById('artist')
+    pic=document.querySelector('.pic')
+    play=document.getElementById('play')
+    next=document.getElementById('next')
+    wav=document.querySelector('.wav')
+    prev=document.querySelector('.prev-track')
+    random=document.querySelector('.random-track')
+    duratio=document.querySelector('.totalDura')
+    slider=document.querySelector('.rang')
+    
+
+        let index =0
+       // let audi= new Audio('Audios/Kizz_Daniel_Ft_Tekno_-_Buga_Audio_.mp3')
+        let musicList=[
+            {
+                img:'images/img_5terre.jpg',
+                Music: 'Audios/Kizz_Daniel_Ft_Tekno_-_Buga_Audio_.mp3',
+                Artist: 'Kizz_Daniel ft Tekno',
+                name: 'Buga'
+            },
+
+            {
+                img:'images/milky.jpeg',
+                Music: 'Audios/02 Davido - 1 Milli (NetNaija.com).mp3',
+                Artist: 'Davido',
+                name: '1 Milli'
+            },
+            {
+                img:'images/pexels-евгения-егорова-9049368.jpg',
+                Music: 'Audios/2face-Opo-ft-wizkid.mp3',
+                Artist: 'Wizkid x 2face',
+                name: 'opo'
+            },
+        ]
+            
+            function display(){
+                title.innerHTML=`${musicList[index].name}`
+                artist.innerHTML=`${musicList[index].Artist}`
+                pic.innerHTML=` <img class="circle" src="${musicList[index].img}" alt="">`
+                MusicLength.innerHTML=`${musicList.length}`
+            }
+            display()
+
+            
+           function playTrack(){
+            isRandom ? pauseing() : play()
+           }
+
+            play.addEventListener('click', ()=>{
+                circle=document.querySelector('.circle').classList.add('rotating')
+                title=document.getElementById('title').classList.add('color')
+                
+               let sel= new Audio(`${musicList[index].Music}`)
+            
+              sel.loop=true;
+              wav.classList.add('load')
+              wav.hidden=false 
+              pauseing.hidden=false
+              play.hidden=true;
+              
+              isRandom=true
+              sel.play()
+            })
+
+            pauseing.addEventListener('click', ()=>{
+                circle=document.querySelector('.circle').classList.remove('rotating')
+                title=document.getElementById('title').classList.remove('color')
+                let sel= new Audio(`${musicList[index].Music}`)
+                wav.classList.remove('load')
+                wav.hidden=true
+                pauseing.hidden=true
+                play.hidden=false;
+
+                isRandom=false;
+                sel.pause();
+            
+            })
+
+
+          next.addEventListener('click', ()=>{
+              if(index+1 < musicList.length){
+                index++;
+              
+                display()
+                let sel= new Audio(`${musicList[index].Music}`)
+                sel.pause()
+              }
+          })
+          prev.addEventListener('click', ()=>{
+              if (index-1 < musicList.length) {
+                  index--;
+                  display()
+              }
+          })
+          random.addEventListener('click', ()=>{
+            succAlert.hidden=false
+            setTimeout(() => {
+                succAlert.hidden=true
+            }, 800);
+            
+          })
+          
+    </script>
+</body>
+</html>

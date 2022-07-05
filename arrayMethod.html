@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="JSON/bootstrap.css">
+</head>
+<body>
+
+    <div class="container">
+        <input class="inp form-control" type="number">
+        <button class="btn btn-success">Check</button>
+    </div>
+
+    <script>
+        let arr=[]
+        let input=document.querySelector('.inp')
+        button=document.querySelector('.btn')
+        
+        button.addEventListener('click', ()=>{
+        //    input.value=arr.value;
+        let box=input.value;
+        arr.push(box)
+       
+        let newArr=arr.filter(element=> element % 2 ===0)
+       return console.log(`this is the even number the odd number are filters our ${newArr}`)
+        })
+
+
+
+
+        // let number=[2,3,5,1,2,9,0,5,2]
+        // let Newnumber=number.map(element=>element + 10).filter(filltered=> filltered % 2 === 0)
+
+        // console.log(Newnumber)
+
+        // let newFilter =element.filter(elements=>{
+        //     return elements % 2 === 1;
+        // })
+        // console.log(newFilter)
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+      
+    </style>
+
+    <div class="container">
+        <input id="inp" type="text">
+        <h1 title="Move Mouse away" id="show"></h1>
+    </div>
+<button>ok</button>
+
+    <script>
+      
+           let inp=document.getElementById('inp')
+            let show=document.getElementById('show')
+            button=document.querySelector('button')
+           let arr=[]  
+
+        
+       inp.addEventListener('input', ()=>{
+        let seli=inp.value
+           show.innerHTML =seli
+          arr.push(seli)
+          let sel=arr
+          console.log(sel)
+          
+           
+
+           for (let i = 0; i < arr.length; i++) {
+               
+            if (arr.length == 3) {
+            let result=arr.join('=')
+            console.log(result)
+            show.innerHTML+='-'
+              console.log('stop')
+           }
+               
+           }
+         
+       })
+      
+        function cal(ok){
+            let calculate=3547*ok
+           return calculate
+        }  
+       let a= cal(23)
+       console.log(a) 
+
+    let credit =document.createElement('div')
+    console.log(credit)
+    credit.setAttribute('class', 'ok')
+    document.body.append(credit)
+
+   console.log(show.getAttribute('title'))
+  
+      
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{"project": [
+    {"IMG": "images/milky.jpeg", "Item": "Cookie LAvalorr", "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus quos veritatis. Consectetur,", "Shoe":"White", "id": 1, "Price":"10$"},
+    {"IMG": "images/pexels-stephan-müller-1107666.jpg", "Item": "Cookie Cream Cake", "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus quos veritatis. Consectetur,", "Shoe":"White", "id": 2,  "Price":"20$"},
+    {"IMG": "images/img_5terre.jpg", "Item": "Fried Ice Cream", "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus quos veritatis. Consectetur,", "Shoe":"White", "id": 3,  "Price":"25$"},
+    {"IMG": "images/pexels-stephan-müller-1107666.jpg", "Item": "Oried BAll", "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus quos veritatis. Consectetur,", "Shoe":"White", "id": 4,  "Price":"15$"},
+    {"IMG": "images/Onka Ede Yoruba.00_01_28_08.Still002.jpg", "Item": "Lava Cake", "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus quos veritatis. Consectetur,", "Shoe":"White", "id": 5,  "Price":"5$"},
+    {"IMG": "images/pexels-stephan-müller-1107666.jpg", "Item": "Spanish Punbble", "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus quos veritatis. Consectetur,", "Shoe":"White", "id": 6,  "Price":"50$"},
+    {"IMG": "images/img_5terre_wide.jpg", "Item": "PAVlova", "content": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus quos veritatis. Consectetur,", "Shoe":"White", "id": 7,  "Price":"20$"}
+
+]
+}

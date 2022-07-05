@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="JSON/bootstrap.css">
+</head>
+<body>
+
+    <style>
+        body{
+            position: absolute;
+            left: 30%;
+        }
+        img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+
+            box-shadow: 2px 2px 5px grey;
+        }
+        .container{
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(4, 50px);
+            object-fit: cover;
+        }
+        .class{
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(4, 50px);
+            object-fit: cover;
+        }
+        .put{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: orange;
+            box-shadow: 2px 2px 5px grey;
+        }
+        .shop{
+            background-color: blue;
+        }
+        .group{
+            background-color: brown;
+            border-radius: none;
+        }
+      
+    </style>
+
+    <div class="container"></div>
+    <div class="class"></div>
+    <button class="btn btn-info">Add icon</button>
+
+    
+    <script>
+        let counter= 3;
+          let image=["images/pexels.jpeg",  "images/pexels-aleksey-sokolenko-10194696.jpg",  "images/pexels-nikita-nikitin-10102319.jpg",  "images/pexels-евгения-егорова-9049368.jpg",  "images/pexels.jpeg",  "images/pexels-aleksey-sokolenko-10194696.jpg",  "images/pexels-nikita-nikitin-10102319.jpg",  "images/pexels-евгения-егорова-9049368.jpg",  "images/pexels.jpeg",  "images/pexels-aleksey-sokolenko-10194696.jpg",  "images/pexels-nikita-nikitin-10102319.jpg",  "images/pexels-евгения-егорова-9049368.jpg",  "images/pexels-aleksey-sokolenko-10194696.jpg",  "images/pexels-nikita-nikitin-10102319.jpg",  "images/pexels-евгения-егорова-9049368.jpg",
+
+        ]
+        let id=['shop','car','group',
+
+        ]
+        classing=document.querySelector('.class')
+        cont=document.querySelector('.container')
+        button=document.querySelector('button')
+        function display(){
+        for (let i = 0; i < 15; i++) {
+        cont.innerHTML+=`<div id'div' class="put ${id[i]}" class='app'><img  src='${image[i]}'width='40'  alt='no'></div>`
+            }
+       
+        }
+        display()
+       
+        button.addEventListener('click', ()=>{
+            cont.innerHTML+=`<div id'div' class="put ${id}" class='app'><img  src='${image}'width='40'  alt='no'></div>`
+        })
+        
+
+
+
+body=document.querySelector('body')
+rem=document.querySelector('.rem')
+
+
+        box=document.getElementById('box')
+        
+        box.addEventListener('click', ()=>{
+            body.classList.add('change')
+        })
+        rem.addEventListener('click', ()=>{
+            body.classList.remove('change')
+        })
+
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>

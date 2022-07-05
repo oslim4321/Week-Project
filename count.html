@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="JSON/bootstrap.css">
+</head>
+    <style>
+        body{
+            background-color: green;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container{
+            display: flex;
+            overflow: hidden;
+        }
+        .pic{
+           background-size: cover;
+            background-position: fixed;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100vh;
+        }
+        .images{
+            overflow: hidden;
+        }
+        .pic{
+            width: 100%;
+        }
+        .text{
+            position: absolute;
+            top: 20%;
+            color: white;
+        }
+ 
+
+
+    </style>
+<body>
+    <div class="container">
+        <div class="images">
+        
+        </div>
+
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span id="prev" class="carousel-control-prev-icon "></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span id="next" class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+</div>
+
+
+    <script>
+        images=document.querySelector('.images')
+        next=document.getElementById('next')
+        prev=document.getElementById('prev')
+        let index=0
+           let image=[
+
+                    { img:
+                        "images/milky.jpeg",
+
+                        text:
+                        "This is dope"
+                    },
+                    {img:
+                        "images/pexels.jpeg",
+                        text:
+                        "This are some cool images"
+                    },
+                    {img:
+                        "images/pexels-aleksey-sokolenko-10194696.jpg",
+                        text:
+                        "Hope  you love this"
+                    },
+                    {
+                    img:
+                    "images/pexels-nikita-nikitin-10102319.jpg",
+                         text:
+                        "I guess it getting interseting"
+                    },
+                    {
+                    img:
+                    "images/pexels-евгения-егорова-9049368.jpg",
+                          text:
+                        "Hope you love this sliders"
+                    }
+                    
+                    
+        ]
+
+    //    function display(){
+    //     images.innerHTML+=`<img src="${image[index].img}" alt="">
+    //     <h1 class='display-1 text'>${image[index].text} ${index}<h1>`
+    //    }
+    //    display()
+
+       next.addEventListener('click', ()=>{
+           if (index < image.length) {
+            images.innerHTML=`<img class='pic' src="${image[index].img}" alt="">
+                              <h1 class='display-1 text'>${image[index].text} ${index+1}<h1>`
+                               
+               index++;
+            //   display()
+           }
+       })
+
+       prev.addEventListener('click', ()=>{
+                index--;
+           if (index+1 < image.length) {
+            images.innerHTML=`<img class='pic' src="${image[index].img}" alt="">
+                              <h1 class='display-1 text'>${image[index].text} ${index+1}<h1>`
+             
+       
+           }
+       })
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="box">
+            <div class="fle">
+            <div class="content">
+                <p>Ui</p>
+                <div class="circle">
+                    <div class="circling a"><div style="background-color: purple;" class="center"></div></div>
+                    <div style="margin-top: 7px;" class="circling a"><div style="    box-shadow: inset -3px -3px 7px white,inset  2px 2px 5px rgba(94, 104, 121,0.2) " class="center "></div></div>
+                </div>
+                <div class="butt">
+                    <button style="margin-bottom: 14px;" class="btn" ><span></span></button>
+                    <button  id="btn" ><span></span></button>
+                </div>
+              
+                <div class="music">
+                    <div class="play">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                </div>
+                <input class="inp" placeholder="Search" type="text">
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        butt=document.querySelector('.butt')
+        butt.addEventListener('click', (e)=>{
+           if (e.target.classList.contains('btn')) {
+               e.target.classList.toggle('active')
+           }else{
+            e.target.classList.toggle('change')
+           }
+        })
+
+
+//         var btn = document.getElementById('btn');
+//         var togg=document.getElementById('toggle')
+//         function toggleBtn(){
+//     btn.classList.toggle("active")
+//     togg.classList.toggle("active")
+// }
+    </script>
+</body>
+</html>

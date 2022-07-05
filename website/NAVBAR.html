@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+    <div class="cont">
+    <div class="navbar">
+        <h1 class="coding">Coding <span>Addit</span></h1>
+        
+       <div  id="inp" class="search"> <div  class="fas fa-search" id="search-btn"></div></div>
+       
+      
+        <nav>
+            <ul>
+                <li> <a href="#home"> Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#Project">Project</a></li>
+                <li><a href="#Contact">Contact</a></li>
+            </ul>
+        </nav> 
+  
+    <div class="side">
+        <div id="write" class="inp"><div class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+        </div></div> </div>
+        <div class="buttSide"> <div  class=" fas fa-bars" ></div></div>
+       
+        
+
+</div>
+</div>
+    <div id="home" class="content">
+        <div class="contenting">
+            <img src="img/pexels.jpeg" alt="">
+        </div>
+        <div class="top">
+        <button class="topButton">back to top</button></div>
+    </div>
+
+    <div id="about" class="about">
+        
+        <div class="aboutPage"> 
+            <h1 style="text-align: center; margin-bottom: 100px; border-bottom: 1px solid;">About page</h1>
+
+    <div class="absoutPage">
+        <div class="img">
+            <img style="width: 600px; height: 400px; border-radius: 10px;" src="img/pexels-nikita-nikitin-10102319.jpg" alt="">
+        </div>
+            <div class="butt-container">
+                <div class="buttons">
+                    <button data-id="history" class="active" id="AboutButton">history</button>
+                    <button  data-id="goals" id="AboutButton">goals</button>
+                    <button data-id="vision" id="AboutButton">vision</button>
+                </div>
+                <div class="aboutContent">
+                <div class="histor active ok" id="history">
+                    <h3>History</h3><p>speriores, placeat accusantium, nihil animi, dolor dolores eius voluptatum facilis voluptate voluptatibus   nostrum eligendi. Repellendus sit similique autem voluptatibus.lor Lorem ipsum dolor sit amet consectetur adipisicing elit. A temporibus velit perferendis, neque praesentium facere quisquam? Earum autem dolorem non labore repellat nobis, tenetur consequatur molestias, necessitatibus fuga, quis eligendi!</p> 
+                </div>
+                <div class="goals ok"  id="goals">
+                    <h3>Goals</h3><p>speriores, placeat accusantium, nihil animi, dolor dolores eius voluptatum facilis voluptate voluptatibus   nostrum eligendi. Repellendus sit similique autem voluptatibus.lor Lorem ipsum dolor sit amet consectetur adipisicing elit. A temporibus velit perferendis, neque praesentium facere quisquam? Earum autem dolorem non labore repellat nobis, tenetur consequatur molestias, necessitatibus fuga, quis eligendi!</p> 
+                    <ol>
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ol>
+                </div>
+                <div class="vision ok" id="vision">
+                    <h3>Vision</h3><p>speriores, placeat accusantium, nihil animi, dolor dolores eius voluptatum facilis voluptate voluptatibus   nostrum eligendi. Repellendus sit similique autem voluptatibus.lor Lorem ipsum dolor sit amet consectetur adipisicing elit. A temporibus velit perferendis, neque praesentium facere quisquam? Earum autem dolorem non labore repellat nobis, tenetur consequatur molestias, necessitatibus fuga, quis eligendi!</p> 
+                </div>
+                
+            
+                </div>
+            </div>
+    </div>
+        </div>
+    </div>
+        <!-- PROJECT POAGE -->
+    <div id="Project" class="PROJECT">
+        <div class="Project">
+            <h1 style="text-align: center;">PROJECT page</h1>
+        </div>
+    </div>
+
+    <div id="Contact" class="contact">
+        <div class="contact">
+            <h1 style="text-align: center;">contact page</h1>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+     body=document.querySelector('body')
+
+
+    div=document.querySelectorAll('.div')
+    div.forEach(element => {
+        element.addEventListener('click', (e)=>{
+            let get=e.target
+  
+        // if (element !== get) {
+        //     element.classList.remove('change')
+        // }else{
+        //     element.classList.add('change')
+        // }
+        if (element === e.target) {
+            element.classList.add('change')
+        }else{
+            element.classList.remove('change')
+        }
+     
+
+    })  
+    // element.classList.add('change')
+
+    });
+    write=document.getElementById('write')
+    inp=document.getElementById('inp')
+    
+    inp.addEventListener('click', ()=>{
+        write.classList.toggle('chan')
+    })
+  
+    buttSide=document.querySelector('.buttSide')
+    nav=document.querySelector('nav')
+    buttSide.addEventListener('click',()=>{
+        nav.classList.toggle('navAdd')
+        write.classList.remove('chan');
+    })
+
+    /* WHEN SCROLIND HIDE THE NAVBARS */
+    window.onscroll = () =>{
+        nav.classList.remove('navAdd');
+        write.classList.remove('chan');
+    // cartItem.classList.remove('active');
+}
+
+topButton=document.querySelector('.topButton')
+window.addEventListener('scroll',()=>{
+    let scrollHeight=window.pageYOffset;
+    if (scrollHeight > 500) {
+        topButton.classList.add('displ')
+    }else{
+        topButton.classList.remove('displ') 
+    }
+    topButton.addEventListener('click',()=>{
+   scrollTo(0,0)
+})
+} )
+
+        /* ABOUT FUNCTION  */
+    aboutContent=document.querySelectorAll('.ok')
+    about=document.querySelector('#about')
+    btn=document.querySelectorAll('#AboutButton')
+    about.addEventListener('click', (e)=>{
+        let id=e.target.dataset.id
+        if (id) {
+            btn.forEach(element => {
+                element.classList.remove('active')
+                e.target.classList.add('active')
+          });
+          aboutContent.forEach(element => {
+              element.classList.remove('active')
+              if (id === element.id) {
+                element.classList.add('active')
+              }
+          });
+        }
+    })
+
+    todo[
+        {
+            what:'djs hj'
+        }
+    ]
+</script>
+</body>
+</html>

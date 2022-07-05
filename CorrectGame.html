@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correct letter</title>
+    <link rel="stylesheet" href="JSON/bootstrap.css">
+</head>
+<body>
+    <style>
+        span{
+            color: red;
+        }
+        #countDown{
+            font-weight: 400;
+        }
+        .cou{
+            width: 50px;
+            background-color: green;
+            color: white;
+        }
+    </style>
+    <div class="container text-center">
+        <div class="cou">
+        <h1 id="countDown"></h1></div>
+        <h1 class="display-4">Write the correct word in order</h1>
+        <div id="check">
+        <!-- <p  class="display-3 ">game</p> -->
+    </div>
+        <input id="inp" class="form-control" type="text">
+        <button class="btn btn-success">Check</button>
+        <!-- <h1 class="display-5">The correct answer is : <span id="Answer"></span></h1> -->
+   
+        <h2 class="display-5">Correct Score :<span id="win">0</span></h2>
+        <h2  class="display-5">Failed Score :<span id="loose">0</span></h2>
+       
+                    <!-- Success alert -->
+        <div id="succAlert" class="alert alert-success" hidden>
+            <strong>Success!</strong> Congrat!! You got the right answer
+        </div>
+                <!-- FAiled alert -->
+        <div id="failAlert" class="alert alert-danger" hidden>
+            <strong>Failed!</strong> Uhhh you miss the answer.
+        </div>
+        <p id="length"></p>
+</div>
+
+
+  
+
+    <script>
+        container=document.querySelector('.container')
+        inp=document.getElementById('inp')
+        button=document.querySelector('button')
+        countDown=document.getElementById('countDown')
+        length=document.getElementById('length')
+
+        let index=0
+        let count=15
+        score=0;
+        fail=0;
+   
+        let arr=[{Correct:'game',Wrong: 'agme'},{Correct:'code',Wrong: 'odce'},{Correct:'social',Wrong: 'cisoal'},{Correct:'english',Wrong: 'ngelsih'},]
+       
+        function counting(){
+            let input=inp.value;
+         let read= setInterval(() => {
+           count--;
+           countDown.innerHTML=count;
+           if (count === 0 && input=='') {
+            fail++;
+            loose.innerHTML=fail;
+            failAlert.hidden=false;
+            failAlert.innerHTML=`<p>The time is up! the correct answer is <strong>${arr[index].Correct}</strong></p>`
+            setTimeout(() => {
+                failAlert.hidden=true;
+            }, 3000);
+            //clearInterval(read)
+            count=15
+            index++
+            display()
+            
+           }
+       }, 2000);
+        }
+    counting()
+        
+        
+    function display(){
+        let {Correct,Wrong}=arr
+            check.innerHTML=`
+            <p  class="display-3 ">${arr[index].Wrong}</p>`
+        }
+        display()
+
+        button.addEventListener('click', ()=>{
+            let input=inp.value
+
+            //    if(index+1 === arr.length){
+            //    alert('you are done')
+            //    button.disabled=true;
+            //    countDown.style.display='none'
+            //    container.innerHTML+=`<button class='btn btn-primary'>Restart</button>`
+            //    display()
+            // }else{
+
+            // }
+
+            if (input.trim()== arr[index].Correct) {
+                count=15
+                succAlert.hidden=false
+                score++;
+                inp.value=''
+                win.innerHTML=score
+                setTimeout(() => {
+                    succAlert.hidden=true
+                }, 3000);
+
+            if(index+1 < arr.length){
+                index++
+                display()
+            }
+            }else{
+               // Answer.innerHTML=arr[index].Correct
+                fail++
+                count=15
+                
+                countDown.style.color='red'
+                setTimeout(() => {
+                    countDown.style.color='white'
+                }, 500);
+
+                inp.value='';
+                loose.innerHTML=fail
+                failAlert.hidden=false
+                failAlert.innerHTML=`<p>Uhhh you miss the answer! the correct answer is <strong>${arr[index].Correct}</strong></p>`
+
+
+                setTimeout(() => {
+                    failAlert.hidden=true
+                }, 3000);
+
+                if(index+1 < arr.length){
+                index++;
+                display()
+            }
+            }
+        })
+      //  length.innerHTML=`<span>${index}</span> out of <span>${arr.length}</span>`
+
+       
+
+
+
+
+    </script>
+</body>
+</html>

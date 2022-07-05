@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="JSON/bootstrap.css">
+</head>
+<body>
+    <style>
+        .container{
+            margin-top: 50px;
+        }
+        button{
+            margin: 20px;
+        }
+        .cont{
+            background-color: darkgreen;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 30px;
+            color: white;
+            font: 18px;
+        }
+    </style>
+    <div class="container">
+        <input id="inp" class="form-control" type="text">
+    <div class="text-center">
+        <button class="btn btn-success">Check</button>
+        <div id="disp" ></div>
+    </div>
+    </div>
+
+<div>
+    <input name="size" type="radio" >
+    <input name="size" type="radio">
+    <input name="size" type="radio">
+</div>
+
+
+<div id="ok">
+
+</div>
+    
+    <script>
+        let array=[1,2,3,4]
+        let i=0
+         ok=document.getElementById('ok')
+         button=document.querySelectorAll('button')
+        function display(){
+            for (let i = 0; i < 4; i++) {
+           
+          ok.innerHTML+=`<button class='you' id='${array[i]}' name="size">check</button>`
+         
+          
+        }
+        ok.addEventListener('click', (e)=>{
+            let sel=e.target;
+        
+                if (sel.classList.contains('you')) {
+                    button.forEach(element => {
+                //    console.log(sel)
+                    element.classList.remove('cont')
+                     sel.classList.add('cont')
+                    })
+                }
+            });
+        
+        }
+        display()
+      
+       
+
+       
+        // button=document.querySelectorAll('button')
+        // button.forEach(element => {
+        //     element.addEventListener('click', ()=>{
+        //     element.classList.add('cont')
+        //     console.log(i++)
+        // })
+        // });
+      
+
+
+
+
+
+         let input=[]
+          
+        let inp=document.getElementById('inp')
+        let btn=document.querySelector('.btn')
+        let disp=document.getElementById('disp')
+
+        btn.addEventListener('click', ()=>{
+           
+            input.push(inp.value);
+            
+            for (let i = 0; i < input.length; i++) {
+            let evenly=input.filter(number=>{
+            return number % 2 ===0;
+            })
+            disp.innerHTML=`<h2 class="display-4">This are the odd Numbers<h1>${evenly}</h1><h2>`
+
+            }
+          
+            // console.log(evenly)
+        })
+
+
+
+      // let arr=[3,2,4,6,8,1]  // getting all the Evel number
+      let arr=[1,2,3,4,5,6,7,8,9,10]
+      console.log(arr,'this are all the number')
+        let odding=[3,5,7,4]
+
+
+        //console.log(arr)
+        // for (let i = 0; i < arr.length; i++) {
+            
+        //    if (arr[i]%2==0) {
+        //        arr.push(arr.splice(i,1)[0])
+
+        //    }
+            
+        // }
+      //  console.log(arr)
+     
+
+        let even=arr.filter(number =>{
+            return number % 2 === 1;
+        })
+        console.log('this is even number',even)
+
+        let odd=arr.filter(number =>{
+            return number % 2 === 1;
+        })
+        console.log('this is odd number',odd)
+        
+    </script>
+</body>
+</html>

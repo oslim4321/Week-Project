@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .container{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .cont{
+            display: flex;
+           background-color: red;
+           width: 60vh;
+           height: 50vh;
+            overflow: hidden;
+        }
+        img{
+         
+            width: 100%;
+            transition: all 0.6s ease;
+        }
+        #back.change{
+            transform: translateX(-100%);
+            
+        }
+        /* img .change{
+            transform: translateX(-100%);
+        } */
+        .spn{
+            position: absolute;
+            top: 80%;
+            left: 45%;
+            width: 200px;
+            height: 200px;
+   
+        }
+         span{
+         
+            padding: 4px;
+            padding-left: 20px;
+            background-color: red;
+           cursor: pointer;
+            z-index: 0;
+            margin: 10px;
+        }
+    </style>
+
+<div class="container">
+    <div class="cont">
+        <!-- <img id="firImg" class="img" src="images/milky.jpeg" alt="">
+        <img id="seIM" src="images/Onka Ede Yoruba.00_01_28_08.Still002.jpg" alt="">
+        <img src="images/pexels-aleksey-sokolenko-10194696.jpg" alt="">
+        <img src="images/pexels-pascal-meier-5183721.jpg" alt=""> -->
+    
+    </div>
+    <div class="spn">   <!-- <span id="next"></span>
+        <span></span>
+        <span></span> -->
+        <span id="move"></span>
+       </div>
+</div>
+ 
+<button>change</button>
+
+<script>
+ let index=0;   
+    let cont=document.querySelector('.cont')
+move=document.getElementById('move')
+// back=document.getElementById('back')
+let image=[
+      { pic: 
+        "images/pexels.jpeg"
+        },
+                   
+      { pic: 
+        "images/pexels-aleksey-sokolenko-10194696.jpg"
+        },
+      { pic: 
+        "images/pexels-nikita-nikitin-10102319.jpg",
+        },
+      { pic: 
+        "images/pexels-евгения-егорова-9049368.jpg"
+        },
+             
+
+        ]
+       
+        function display(){
+            cont.innerHTML=`<img id='back' src="${image[index].pic}">`
+
+        }
+        display()
+        back=document.getElementById('back')
+      
+
+            move.addEventListener('click', ()=>{
+                back.classList.add('change')
+                if (index+1 < image.length) {
+                  index++;
+                  
+                   
+                  display()
+                }
+            })
+         
+         
+    
+        
+    // next=document.querySelector('#next')
+    // seIM=document.querySelector('#seIM')
+    // firImg=document.querySelector('#firImg')
+    // next.addEventListener('click', ()=>{
+    //    seIM.classList.add('change')
+    //    firImg.classList.add('change')
+    // })
+    //
+    
+
+    // document.querySelector('#back').setAttribute("src", image[0])
+
+    // function move(){
+      
+    // }
+</script>
+</body>
+</html>
+
+
+

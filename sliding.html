@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .container{
+            width: 100%;
+            height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            overflow: hidden;
+            position: fixed;
+        }
+        .cont{
+            display: flex;
+            width: 500px;
+            height: 550px;
+            background-color: green;
+            overflow: hidden;
+        }
+        img{
+            width: 100%;
+            transition: 2s ease;
+        }
+        .butt{
+            position: absolute;
+            bottom: 15%;
+        }
+        button{
+            padding: 10px 14px;
+        }
+        .done{
+            /* display: block; */
+            transform: translateX(-35rem);
+        }
+        .im{
+            display: none;
+        }
+        .blue{
+            background-color: green;
+        }
+        
+    </style>
+    <div class="container">
+        <div class="cont">
+            <img id="1" class="im a" src="images/milky.jpeg" alt="">
+            <img id="2" class="im b" src="images/pexels-aleksey-sokolenko-10194696.jpg" alt="">
+            <img id="3" class="im c" src="images/pexels-nikita-nikitin-10102319.jpg" alt="">
+            <img id="4" class="im d" src="images/pexels-евгения-егорова-9049076.jpg" alt="">
+        </div>
+        <div class="butt">
+            <button data-id="1"></button>
+            <button data-id="2"></button>
+            <button data-id="3"></button>
+            <button data-id="4"></button>
+        </div>
+    </div>
+   
+    <script>
+        img=document.querySelectorAll('img')
+        img1=document.querySelector('.img1')
+        btn=document.querySelectorAll('button')
+        butt=document.querySelector('.butt')
+        
+        
+        butt.addEventListener('click', (e)=>{
+            let id=e.target.dataset.id
+            if(id){
+                btn.forEach(element => {
+                    element.classList.remove('blue')
+                    e.target.classList.add('blue')
+                    img.forEach(max => {
+                        if (id === max.id) {
+                            // max.style.display='block'
+                            max.classList.remove('im')
+                            max.classList.add('done')
+                    }
+                    });
+                });
+            }
+        })
+        
+    </script>
+</body>
+</html>

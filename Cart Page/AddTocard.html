@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to card</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            height: 99vh;
+            display: flex;
+           
+        }
+        .cart{
+            border: 2px solid orange;
+            width: 80%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart:before{
+            width: 70px;
+            height: 50px;
+            background-color: red;
+        }
+        .content{
+            width: 90%;
+            height: 100%;
+            background-color: #ccc;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            overflow-y: auto;
+            padding: 20px;
+        }
+        #head{
+            position: absolute;
+            left: -120px;
+            top: 40%;
+            transform: rotateZ(270deg);
+            
+        }
+        .box{
+            width: 350px;
+            border-right: 1px solid white;
+            border-left: 1px solid white;
+            border-bottom: 1px solid white;
+            height: 400px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 10px 10px 10px grey;
+            margin-bottom: 15px;
+            position: relative;
+        }
+       p,button{
+           margin: 10px;
+       }
+       p{
+          letter-spacing: 1px;
+           overflow-y: auto;
+       }
+       #text{
+           text-transform: uppercase;
+           font-size: 20px;
+           font-weight: 100;
+       }
+       button{
+           position: absolute;
+           bottom: 0;
+       }
+       h4{
+           font-size: 30px;
+           font-weight: 100;
+           text-transform: uppercase;
+       }
+        #viewMore{
+            position: absolute;
+            right: 0;
+        }
+        img{
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        #ViewCon{
+            position: absolute;
+            right: 0;
+        }
+        .right-cart{
+            width: 20%;
+            border: 2px solid;
+            height: 100%;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+        .boxex{
+            width: 100%;
+            height: 50%;
+            margin: 20px 0;
+            border: 1px solid ;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            /* background-color: orange; */
+            /* display: none; */
+        }
+        .price{
+            color: red;
+        }
+        #del{
+            height: 30px;
+            font-size: 10px;
+            position: absolute;
+             top: 0px;
+        }
+        .secPrice{
+            position: absolute;
+            color: red;
+            font-weight: 900;
+            right: 0;
+        }
+        .pop{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+           
+        }
+        .popping{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
+            height: 40%;
+            z-index: 10000;
+            padding: 20px;
+            background-color: rgb(255, 253, 253);
+            position: relative;
+            background-position: fixed;
+            background-size: cover;
+
+        }
+        .popimg{
+            width: 250px;
+            height: 200px;
+            
+        }
+        .butt{
+            position: absolute;
+        }
+        video{
+            width: 100%;
+            height: 100vh;
+            object-fit: contain;
+            z-index: 000;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+    </style>
+
+<!-- <video src="images/2c4d996fae094abcac99839e562a1d49.mp4" autoplay muted  loop> -->
+<h1 id="head" class="display-4 text-center">Get A New Items</h1>
+    <div class="container">
+        <div class="cart">
+            <div class="content">
+            <!-- <div class="box">
+                <div class="cont">
+                    <img src="images/pexels-stephan-müller-1107666.jpg" alt="">
+                    <h4 class="text-center">Cookies Juice</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae aliquam, natus animi, iusto laboriosam maxime quidem dolor aperiam, rem corporis.</p>
+                    <button class="btn btn-success" onclick="buy()">Buy Item</button>
+                    <button id="ViewCon" class="btn btn-info">View Content</button>
+                </div>
+            </div>         -->
+            </div>
+        </div>
+
+        <div class="right-cart" id="item" hidden>
+            <h4 class="text-center" >ItEM BOUGHT</h4>
+            <!-- <div class="boxex">
+                <img id="img" src="" alt="">
+                <h4 id="h4"></h4>
+                <p id="p"></p>
+                </div> -->
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="pop" hidden> 
+        <div class="popping">
+           
+        </div>
+    </div>
+</video>
+
+    <script>
+   content=document.querySelector('.content')
+   let listing=document.getElementById('item')
+   p=document.getElementById('p')
+   img=document.getElementById('img')
+   h4=document.getElementById('h4')
+   popping=document.querySelector('.popping')
+   pop=document.querySelector('.pop')
+   pop=document.querySelector('.pop')
+   //let buyin=document.querySelector('#buyin')
+
+let i=0;
+
+    //FECTCHING DATA FROM JSON FILE
+ function display(){
+        fetch('jSON.json')
+            .then(Response =>Response.json())
+            .then(data=>{
+                
+  //  console.log(data.project)
+    data.project.forEach(element => {
+        content.innerHTML+=`
+         
+         <div class="box" id='${element.id}'>
+            <div class="cont">
+             <img src="${element.IMG}" alt="">
+             <p id='text' class="text-center">${element.Item}</p>
+             <p>${element.content}</p>
+             <button class="ok btn btn-success" id='ITEMBUY'>Buy Item</button>
+            <button id="ViewCon" class="view btn btn-info">View Content</button>
+            <p  class='price'>${element.Price}</p>
+            </div>
+        </div>
+            `   
+          //  console.log(data.project)
+         
+           })   
+    });
+    
+}
+        display()
+       
+       // GETTING THE ID OF EACH ITEM BUTTON BEEN CLICK 
+    content.addEventListener('click', modal)
+
+    function modal(e){
+        if (e.target.classList.contains('ok')) {
+           item.hidden=false
+
+           let ItemId=parseInt(e.target.parentElement.parentElement.id)
+           cartDisplay(ItemId)
+        }
+        if (e.target.classList.contains('view')) {
+            pop.hidden=false
+
+            let cardId=parseInt(e.target.parentElement.parentElement.id)
+            worr(cardId)
+        }
+    }
+
+
+    function cartDisplay(id){
+        fetch('./jSON.json')
+            .then(Response =>{
+                return Response.json()
+            })
+            .then(data =>{
+                data.project.forEach(function(item){
+                    if (item.id === id) {
+                       // console.log(item)
+                    // <span class='price'>${Item.Price}</span>
+                     listing.innerHTML+=`
+                       <div  class="boxex">
+                     <div style="position: relative;">
+                        <button class='btn btn-danger' id='del'>X</button>
+                        <p class='secPrice'>${item.Price}</p>
+                        <img id="img" src=" ${item.IMG}" alt=""> 
+                    </div>
+                        <p class='text-danger' id="h4">${item.Item}</p>
+                        <p id="p"> ${item.content}</p>
+                        
+                        </div>
+                       `
+                      
+                    }
+                })
+              
+            })
+    }
+    listing.addEventListener('click', e=>{
+        if(e.target.classList.contains('btn')){
+            listing.innerHTML=''
+        }
+    })
+
+
+        // POPUP  ALERT FOR VIEW MORE
+    pop.addEventListener('click', e=>{
+        pop.hidden=true
+    })
+   
+    function worr(id){
+        fetch('./jSON.json')
+            .then(Response =>{
+                return Response.json()
+            })
+            .then(data =>{
+                data.project.forEach(function(item){
+                    if (item.id === id) {
+                        popping.innerHTML=`
+                <div>
+                <img class="popimg" src="${item.IMG}" alt=""></div>
+
+                <div>
+                <h4>${item.Item}</h4>
+                <p>${item.content}</p>
+                <p class="amount">${item.Price}</p></div>
+                <button  onclick="alert()" class='butt btn btn-danger' id='ITEMBUY'>Buy Item</button>
+        `
+                    }
+                })
+            }) 
+    }
+
+
+
+       
+    </script>
+</body>
+</html>

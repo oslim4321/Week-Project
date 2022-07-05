@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <input id="inp" oninput="write()" type="text" placeholder="ok">
+    <button id="butt">Shuffle</button>
+    <h1 id="h1"></h1>
+
+    <script>
+        // let len=[2,3]
+        // console.log(len.length)
+        butt=document.getElementById('butt')
+        h1=document.getElementById('h1')
+        let body=document.querySelector('body')
+       
+
+        butt.addEventListener('click', ()=>{
+            let first;
+            let second;
+            let third;
+
+            rabdom=Math.floor(Math.random()*255)
+            sec=Math.floor(Math.random()*255)
+            thi=Math.floor(Math.random()*255)
+
+           first=rabdom
+           second=sec
+           third=thi
+
+            
+        body.style.background=`rgb(${first},${second},${third})`
+        h1.innerHTML`rgba(${first},${second}, ${third})`
+        })
+        
+        function write(){
+            console.log(this.value)
+        }
+
+    </script>
+</body>
+</html>

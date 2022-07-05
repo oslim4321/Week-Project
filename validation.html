@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="JSON/bootstrap.css">
+</head>
+<style>
+    .red{
+        border: red;
+    }
+</style>
+<body>
+    <div class="container">
+        <form action="">
+            <input class="form-control" type="text" name="email" id="inp">
+            <p style="color: red;"  hidden></p>
+        </form>
+    </div>
+    
+    
+
+    <script>
+        // let pater=/^(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*/
+        let pater=/^[a-zA-Z0-9$]{6,12}$/;
+        p=document.querySelector('p')
+        inp=document.getElementById('inp')
+         form=document.querySelector('form')
+       
+
+        form.email.addEventListener('keyup', (e)=>{
+            if (pater.test(e.target.value && e.target.value.includes('@'))) {
+                inp.style.border='2px solid green'
+            }else{
+                inp.style.border='2px solid red'  
+                p.innerHTML='please fill Email form well' 
+                p.hidden=false  
+           }
+        })
+        
+       
+    </script>
+</body>
+</html>
