@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="call()">Call</button>
+  </body>
+
+  <script>
+    let date = new Date();
+    // console.log();
+    class User {
+      constructor(email, name, age) {
+        this.email = email;
+        this.name = name;
+        this.age = age;
+        this.logOutDate = [];
+      }
+      login() {
+        this.logOutDate.push(date.toLocaleTimeString());
+        console.log(this.email, "just logged in");
+        console.log(this.logOutDate);
+      }
+      logOut() {
+        console.log(this.email, "just logged out");
+      }
+    }
+
+    class Admin extends User {
+      // this.role = null;
+      deleteUser(user) {
+        users = users.filter((u) => {
+          return u.email != user.email;
+        });
+      }
+    }
+
+    const userOne = new User("adewleselim6@gmail.com", "oslim", 20);
+    const userTwo = new User("samad@gmail.com", "samad", 10);
+
+    const adminOne = new Admin("tizzy@gmail.com", "tizzy", 30);
+
+    let users = [userOne, userTwo];
+
+    console.log(adminOne);
+    // console.log(userOne);
+
+    function call() {
+      console.log(adminOne.deleteUser(userTwo));
+      console.log(users);
+    }
+  </script>
+</html>

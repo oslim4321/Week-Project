@@ -1,0 +1,107 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* table {
+        border: 1px solid grey;
+      } */
+      table {
+        margin: 0 auto;
+        width: 350px;
+      }
+
+      th {
+        padding: 20px;
+        border: 1px solid grey;
+      }
+      img {
+        width: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>person A</th>
+          <th>Country</th>
+          <th>person B</th>
+        </tr>
+      </thead>
+
+      <tbody id="display">
+        <!-- <tr>
+          <th>Oslim</th>
+          <th>Name</th>
+          <th>ADam</th>
+        </tr>
+        <tr>
+          <th>Ronado</th>
+          <th>Name</th>
+          <th>messi</th>
+        </tr> -->
+      </tbody>
+    </table>
+  </body>
+
+  <script>
+    class User {
+      constructor(name, email, age, career, img) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+        this.career = career;
+        this.img = img;
+      }
+    }
+
+    let Adam = new User(
+      "Adam",
+      "adamazeez@gmail.com",
+      28,
+      "video editor",
+      "IMG_20191119_143744_4 (2).jpg"
+    );
+    let Selim = new User(
+      "Oslim",
+      "oslim@gmail.com",
+      20,
+      "web dev",
+      "./IMG_20211211_161613_656.jpg"
+    );
+
+    console.log(Adam);
+
+    display.innerHTML = `
+         <tr>
+          <th> <img src="${Adam.img}" alt=""></th>
+          <th>IMG</th>
+        <<th><img src="${Selim.img}" /></th>
+        </tr>
+         <tr>
+          <th>${Adam.name}</th>
+          <th>Name</th>
+          <th>${Selim.name}</th>
+        </tr>
+         <tr>
+          <th>${Adam.email}</th>
+          <th>Emails</th>
+          <th>${Selim.email}</th>
+        </tr>
+         <tr>
+          <th>${Adam.age}</th>
+          <th>Age</th>
+          <th>${Selim.age}</th>
+        </tr>
+         <tr>
+          <th>${Adam.career}</th>
+          <th>Career</th>
+          <th>${Selim.career}</th>
+        </tr>
+    `;
+  </script>
+</html>

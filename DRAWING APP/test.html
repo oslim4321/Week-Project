@@ -1,0 +1,159 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- <button onclick="fetch()">get som from server</button> -->
+<div id='doSom'></div>
+<table width="300" height="'300">
+    <tr>
+        <td>hell</td>
+        <td>hell</td>
+        <td>hell</td>
+    </tr>
+</table>
+
+<body>
+    <script>
+
+
+
+
+
+
+        doSom.innerHTML = '<button>delete</button>'
+
+
+
+
+        const arrayOfObjects = [
+            {
+                x: 'foo'
+            },
+            {
+                y: 'bar'
+            }];
+
+        const obj = {
+            hello: 'world'
+        };
+
+        var result = Object.assign({}, obj, ...arrayOfObjects);
+        console.log(result)
+
+        let arr = [1, 2, 3, 4, 5, 66, 77, 8, 8, 9, 90, , , 6, 5]
+
+        date = new Date()
+        // year = date.getFullYear()
+        // console.log(year)
+
+
+
+        class Age {
+            date = new Date()
+            year = date.getFullYear()
+            dob;
+
+            constructor(dob) {
+                this.dob = dob
+            }
+
+            age() {
+                let test = this.year - this.dob;
+                console.log(test)
+            }
+
+            age2(dob) {
+                let test = this.year - dob;
+                console.log(test)
+            }
+            age3(dob) {
+                let test = this.year - dob;
+                console.log(test)
+            }
+        }
+
+        const Selim = new Age(1990);
+        Selim.age()
+        Selim.age2(1991)
+        Selim.age3(2018)
+
+        const Teslim = new Age(2002);
+        Teslim.age2(1992)
+
+
+
+        class Doing {
+            name = 'oslim';
+
+            changeName() {
+                return this.name = 'selim';
+            }
+            changeName2(nam) {
+                return this.name = nam
+            }
+        }
+
+        const newName = new Doing()
+        test = newName.changeName()
+        console.log(test)
+
+        test2 = newName.changeName2('ololo')
+        console.log(test2)
+
+
+
+
+
+        async function fetch() {
+            /* using .then */
+
+            fetch('http://localhost:3400/iamgettin')
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+
+
+            /* using async await */
+            const res = await fetch('http://localhost:3400/iamgettin')
+            console.log(res.data)
+        }
+
+
+        fetch("http://localhost:3400/iamgettin", {
+
+            // Adding method type
+            method: "POST",
+
+            // Adding body or contents to send
+            body: JSON.stringify({
+                title: "foo",
+                body: "bar",
+                userId: 1
+            }),
+
+            // Adding headers to the request
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+
+            // Converting to JSON
+            .then(response => response.json())
+
+            // Displaying results to console
+            .then(json => console.log(json));
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

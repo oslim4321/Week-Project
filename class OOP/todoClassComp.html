@@ -1,0 +1,85 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrapper {
+        max-width: 350px;
+        margin: 0 auto;
+      }
+      form {
+        display: flex;
+        background-color: #ccc;
+        /* padding: 20px 0; */
+      }
+      form input {
+        border: 0;
+        background-color: transparent;
+        outline: 0;
+        flex: 1;
+      }
+      form button {
+        /* height: 100%; */
+        padding: 20px 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <form action="">
+        <input type="text" />
+        <button class="formDataClick">Add</button>
+      </form>
+      <ul></ul>
+    </div>
+  </body>
+
+  <script>
+    form = document.querySelector(".formDataClick");
+    inpValu = document.querySelector("input");
+    ul = document.querySelector("ul");
+    let todoList = [];
+    let id = Math.random(Math.floor() * 8);
+
+    form.addEventListener("click", (e) => {
+      e.preventDefault();
+      //   inpValu.value = "";
+      let todo = new Todo(id, inpValu.value);
+      todoList = [...todoList, todo];
+      console.log(todoList);
+      UI.displayTodo();
+      UI.ClearInput();
+      UI.removeItem();
+    });
+
+    class Todo {
+      constructor(id, todo) {
+        this.id = id;
+        this.todo = todo;
+      }
+    }
+
+    class UI {
+      static displayTodo() {
+        let displayData = todoList.forEach((elem) => {
+          ul.innerHTML += `<li data-id='${elem.id}' class='remove'>${elem.todo}</li> <br>`;
+        });
+        // ul.innerHTML = displayDatas;
+      }
+      static ClearInput() {
+        inpValu.value = "";
+      }
+      static removeItem() {
+        ul.addEventListener("click", (e) => {
+          if (e.target.classList.contains("remove")) {
+            let btnId = e.target.dataset.id;
+            console.log(btnId);
+            todoList = todoList.filter((elem) => elem.id !== btnId);
+          }
+        });
+      }
+    }
+  </script>
+</html>

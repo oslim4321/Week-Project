@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,60 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/main.scss">
 </head>
+
 <body>
     <div class="navbar">
         <a href="#">Our Logo</a>
         <h1>We love our works</h1>
     </div>
+
+    <select name="name" onchange="getValue()">
+        <option value="*">Selected</option>
+        <option value="selim">selim</option>
+        <option value="Debby">samad</option>
+        <option value="semiat">semiat</option>
+    </select>
+    <select name="career" onchange="getValue()">
+        <option value="*">Selected</option>
+        <option value="FontEnd">FontEnd</option>
+        <option value="Backend">Backend</option>
+        <option value="Python">Python</option>
+    </select>
+    <button id="Queen" onclick="aler()">Hello</button>
+    <script>
+        // const id = new URLSearchParams(params)
+        // concole.log(id)
+
+        let obj = {}
+        let test = true
+
+        if (test) {
+            obj.name = 'selim',
+                obj.career = 'web Developer',
+                obj.name = 'samad'
+        }
+        // console.log(obj)
+        const object = {}
+        function getValue(e) {
+            const value = event.target.value
+            const name = event.target.name
+
+
+
+            console.log({
+                ...object,
+                [object.name = name]: value,
+            })
+
+
+            // console.log({ ...data })
+        }
+        Queen = document.getElementById('Queen')
+        function aler() {
+            // alert('hello Black_Queen ')
+            Queen.style.background = 'red'
+        }
+    </script>
 </body>
+
 </html>

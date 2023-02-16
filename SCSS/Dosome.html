@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <input onclick="getValue()" value="selim" type="checkbox">
+    <input onclick="getValue()" value="samad" type="checkbox">
+    <input onclick="getValue()" value="semait" type="checkbox">
+    <input onclick="getValue()" value="sultan" type="checkbox">
+
+
+    <input onchange="oncli()" type="text" name="name">
+    <input onchange="oncli()" type="text" name="career">
+    <input onchange="oncli()" type="text" name="age">
+    <button onclick="get()">get</button>
+
+    <script type="module">
+        import { social } from './Dara.js'
+
+        console.log(social)
+        let arr = []
+        const { log } = console
+        // function getValue() {
+        //     const value = event.target.value
+        //     const checked = event.target.checked
+        //     if (checked) {
+        //         arr.push(value)
+        //     } else {
+        //         arr.splice(value, 1)
+        //     }
+        //     log(arr)
+        // }
+
+        let Obj = {}
+        let resul
+        function oncli() {
+            const name = event.target.name
+            const value = event.target.value
+            resul = ({ ...Obj, [Obj.name = name]: event.target.value })
+            // Obj.value = value
+
+        }
+
+        function get() {
+            log(resul)
+        }
+        log(resul)
+    </script>
+</body>
+
+</html>

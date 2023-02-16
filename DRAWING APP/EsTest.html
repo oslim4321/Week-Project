@@ -1,0 +1,115 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    span {
+        padding: 20px;
+    }
+
+    #prod {
+        width: 100%;
+        margin: 10px auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+</style>
+
+<body>
+
+
+    <div class="container">
+        <label for="">Name</label>
+        <input type="text" id="user">
+
+        <label for="">Product Name</label>
+        <input type="text" id="itemName">
+
+
+        <label for="">Each Quantity</label>
+        <input type="number" id="quan" min="1">
+
+        <label for="">Price</label>
+        <input type="number" id="price" min="1">
+        <button onclick="calu()">Calcu</button>
+
+
+        <div id="prod">
+
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+        let shop = []
+
+        let Answer;
+
+        const numbers = [100, 50];
+        /* callings all items i need by id  */
+        quan = document.getElementById("quan")
+        price = document.getElementById("price")
+        user = document.getElementById("user")
+        let ProdName = document.getElementById("itemName")
+
+        function myFunc(quan, price) {
+            Answer = Number(quan) * Number(price)
+            console.log(Answer)
+            // return Answer;
+        }
+
+
+
+        function calu() {
+            /* getting the value inside the Inputs */
+            let Quantity = quan.value;
+            let Price = price.value;
+            let Name = user.value;
+            let itemName = ProdName.value;
+            // return
+            /* clearing the value insife the product list */
+            prod.innerHTML = '';
+
+            /* calling the function for calculating the quantity and price. And am sending the fuction
+             Argument for Quantity and Price Value :)
+            */
+            myFunc(Quantity, Price)
+            /* pushing  each object inside array*/
+            shop.push({
+                name: Name,
+                productName: itemName,
+                quantity: Quantity,
+                price: Price,
+                total: Answer
+            })
+
+            console.log(shop)
+
+            /* i am looping each object inside array here*/
+            for (let i = 0; i < shop.length; i++) {
+                prod.innerHTML += `
+            <div>
+                <span>Name: ${shop[i].name}</span>
+                <span>ProductName: ${shop[i].productName}</span>
+                <span> Quantity: ${shop[i].quantity}</span>
+                <span>Price: ${shop[i].price}</span>
+                <span>Total: ${shop[i].total}</span>
+            </div>`
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
